@@ -3,7 +3,8 @@ import { motion } from 'framer-motion';
 import { useEffect, useRef } from 'react';
 
 const About = () => {
-  const sectionRef = useRef<HTMLElement>(null);
+  // Change HTMLElement to HTMLDivElement since we're using it with a div
+  const sectionRef = useRef<HTMLDivElement>(null);
 
   const variants = {
     hidden: { opacity: 0, y: 50 },
