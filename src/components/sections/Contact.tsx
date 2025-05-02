@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Github, Linkedin, Mail, Phone, MapPin, Send } from 'lucide-react';
@@ -6,6 +5,26 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { useToast } from "@/hooks/use-toast";
+
+// ✅ Moved variants OUTSIDE of handleSubmit
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2
+    }
+  }
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5 }
+  }
+};
 
 const Contact = () => {
   const { toast } = useToast();
@@ -24,60 +43,36 @@ const Contact = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    
-    // Simulate form submission
+
     fetch("https://formspree.io/f/mwpolpyg", {
-  method: "POST",
-  headers: {
-    "Content-Type": "application/json",
-    Accept: "application/json"
-  },
-  body: JSON.stringify({
-    name: formData.name,
-    email: formData.email,
-    message: formData.message
-  })
-})
-  .then(res => {
-    if (res.ok) {
-      toast({
-        title: "Message sent!",
-        description: "Thanks for reaching out. I'll get back to you soon.",
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json"
+      },
+      body: JSON.stringify(formData)
+    })
+      .then(res => {
+        if (res.ok) {
+          toast({
+            title: "Message sent!",
+            description: "Thanks for reaching out. I'll get back to you soon.",
+          });
+          setFormData({ name: '', email: '', message: '' });
+        } else {
+          throw new Error("Formspree error");
+        }
+      })
+      .catch(() => {
+        toast({
+          title: "Error",
+          description: "Something went wrong. Please try again later.",
+          variant: "destructive",
+        });
+      })
+      .finally(() => {
+        setLoading(false);
       });
-      setFormData({ name: '', email: '', message: '' });
-    } else {
-      throw new Error("Formspree error");
-    }
-  })
-  .catch(() => {
-    toast({
-      title: "Error",
-      description: "Something went wrong. Please try again later.",
-      variant: "destructive",
-    });
-  })
-  .finally(() => {
-    setLoading(false);
-  });
-
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2
-      }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.5 }
-    }
   };
 
   return (
@@ -105,7 +100,7 @@ const Contact = () => {
             <motion.h3 variants={itemVariants} className="text-2xl font-semibold mb-6">
               Contact Information
             </motion.h3>
-            
+
             <div className="space-y-6">
               <motion.div variants={itemVariants} className="flex items-center space-x-4">
                 <div className="bg-primary/10 p-3 rounded-full">
