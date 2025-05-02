@@ -26,15 +26,40 @@ const Contact = () => {
     setLoading(true);
     
     // Simulate form submission
-    setTimeout(() => {
+    fetch("https://formspree.io/f/mwpolpyg", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+    Accept: "application/json"
+  },
+  body: JSON.stringify({
+    name: formData.name,
+    email: formData.email,
+    message: formData.message
+  })
+})
+  .then(res => {
+    if (res.ok) {
       toast({
         title: "Message sent!",
         description: "Thanks for reaching out. I'll get back to you soon.",
       });
       setFormData({ name: '', email: '', message: '' });
-      setLoading(false);
-    }, 1500);
-  };
+    } else {
+      throw new Error("Formspree error");
+    }
+  })
+  .catch(() => {
+    toast({
+      title: "Error",
+      description: "Something went wrong. Please try again later.",
+      variant: "destructive",
+    });
+  })
+  .finally(() => {
+    setLoading(false);
+  });
+
 
   const containerVariants = {
     hidden: { opacity: 0 },
