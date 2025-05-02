@@ -1,73 +1,43 @@
-# Welcome to your Lovable project
+# 🌐 Aditya Kumar - Personal Portfolio
 
-## Project info
+A modern, dynamic, and responsive personal portfolio website built using **React**, **Tailwind CSS**, and **Framer Motion**, inspired by [krajtilak.vercel.app](https://krajtilak.vercel.app/). This portfolio showcases my projects, skills, certifications, and experience in a sleek, developer-friendly UI.
 
-**URL**: https://lovable.dev/projects/9a90b4c5-5415-4f12-a854-99f36bb7ff88
+![Portfolio Screenshot](./public/preview.png) <!-- Optional: Add screenshot of your site -->
 
-## How can I edit this code?
+## 🚀 Live Demo
+🔗 [Visit My Portfolio](https://your-username.vercel.app)
 
-There are several ways of editing your application.
+---
 
-**Use Lovable**
+## 🧑‍💻 About Me
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/9a90b4c5-5415-4f12-a854-99f36bb7ff88) and start prompting.
+Hi! I'm **Aditya Kumar**, an aspiring Software Engineer and AI enthusiast. I'm currently in the final year of my Computer Science and Engineering Diploma at **DRIEMS Polytechnic**. I enjoy building real-world applications, learning emerging technologies, and collaborating in hackathons.
 
-Changes made via Lovable will be committed automatically to this repo.
+---
 
-**Use your preferred IDE**
+## 🔧 Tech Stack
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+- ⚛️ **React**
+- ⚡ **Vite**
+- 💅 **Tailwind CSS**
+- 🎞️ **Framer Motion**
+- 🔠 **TypeScript**
+- 🧩 **shadcn/ui**
+- 📫 **EmailJS / Formspree** (Contact Form)
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+---
 
-Follow these steps:
+## 📁 Project Structure
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
-
-**Edit a file directly in GitHub**
-
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/9a90b4c5-5415-4f12-a854-99f36bb7ff88) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+```bash
+portfolio/
+├── public/
+│   └── preview.png (Optional site preview)
+├── src/
+│   ├── components/
+│   ├── sections/
+│   ├── assets/
+│   └── App.tsx
+├── tailwind.config.ts
+├── vite.config.ts
+└── README.md
